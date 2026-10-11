@@ -18,151 +18,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap">
-<style>
-html, body { margin: 0; padding: 0; background: #ffffff; }
-#ov-home {
-  --floor: #ffffff; --panel: #f2f2ef; --ink: #000000; --on-ink: #ffffff; --muted: #4a4a46; --heura: #ff4f00;
-  --wide: 125%; --narrow: 75%;
-  display: block; width: 100%; margin: 0; padding: 0; background: var(--floor); color: var(--ink); text-align: left;
-  font-family: "Archivo", ui-sans-serif, -apple-system, "Segoe UI", sans-serif; font-size: 16px; line-height: 1.5;
-  font-stretch: 100%; font-weight: 400; font-style: normal; letter-spacing: 0; text-transform: none;
-  -webkit-font-smoothing: antialiased; font-variant-numeric: tabular-nums;
-}
-#ov-home *, #ov-home *::before, #ov-home *::after { box-sizing: border-box; }
-#ov-home header, #ov-home nav, #ov-home main, #ov-home section, #ov-home article, #ov-home footer, #ov-home div, #ov-home span {
-  margin: 0; padding: 0; border: 0; background: transparent; position: static; float: none; max-width: none; min-height: 0;
-  box-shadow: none; transform: none; font-family: inherit; text-transform: none; letter-spacing: inherit;
-}
-#ov-home h1, #ov-home h2, #ov-home h3, #ov-home p, #ov-home ul, #ov-home ol, #ov-home li {
-  margin: 0; padding: 0; font-family: inherit; font-style: normal; text-transform: none; white-space: normal; color: inherit;
-}
-#ov-home ul, #ov-home ol { list-style: none; }
-#ov-home li::before, #ov-home li::marker { content: none; }
-#ov-home a { color: inherit; text-decoration: none; border: 0; background: none; font-family: inherit; letter-spacing: 0; text-transform: none; }
-#ov-home a:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
-
-#ov-home .ov-wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
-
-/* buttons */
-#ov-home .ov-btn {
-  display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px;
-  border: 2px solid var(--ink); border-radius: 8px; font-size: 17px; font-weight: 600; line-height: 1.2; white-space: nowrap;
-  transition: opacity .15s ease, background-color .15s ease;
-}
-#ov-home .ov-btn-primary { background: var(--ink); color: var(--on-ink); }
-#ov-home .ov-btn-primary:hover { opacity: .86; }
-#ov-home .ov-btn-ghost { background: transparent; color: var(--ink); }
-#ov-home .ov-btn-ghost:hover { background: var(--panel); }
-
-/* header */
-#ov-home .ov-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 16px; padding-top: 24px; padding-bottom: 24px; }
-#ov-home .ov-logo {
-  display: inline-flex; align-items: center; gap: 10px; min-height: 44px; white-space: nowrap;
-  font-size: 20px; font-weight: 800; font-stretch: var(--wide); letter-spacing: -.01em; line-height: 1;
-}
-#ov-home .ov-mark { position: relative; flex: none; width: 28px; height: 28px; border-radius: 6px; background: var(--ink); overflow: hidden; }
-#ov-home .ov-mark::after { content: ""; position: absolute; left: 0; right: 0; top: 10px; height: 9px; background: var(--heura); }
-#ov-home .ov-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
-#ov-home .ov-nav .ov-link { display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 8px; font-size: 16px; font-weight: 500; }
-#ov-home .ov-nav .ov-link:hover { background: var(--panel); }
-#ov-home .ov-nav .ov-btn { min-height: 44px; margin-left: 0; padding: 0 18px; font-size: 16px; }
-
-/* hero: the headline, with the models standing on a shelf beside it */
-#ov-home .ov-hero { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 48px 56px; padding-top: 56px; }
-#ov-home .ov-hero-text { flex: 1 1 420px; min-width: 0; padding-bottom: 44px; }
-#ov-home .ov-hero h1 {
-  font-size: clamp(40px, 4.7vw, 68px); line-height: .96; font-weight: 800; font-stretch: var(--wide); letter-spacing: -.02em;
-}
-#ov-home .ov-hero-sub { margin-top: 28px; max-width: 32em; font-size: 19px; line-height: 1.55; color: var(--muted); }
-#ov-home .ov-hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
-#ov-home .ov-hero-shelf { flex: 0 1 auto; }
-
-/* the shelf and the boxes on it */
-#ov-home .ov-shelf { display: flex; flex-wrap: wrap; align-items: flex-end; row-gap: 40px; }
-#ov-home .ov-slot { display: flex; flex-direction: column; justify-content: flex-end; padding: 0 12px; }
-#ov-home .ov-edge { display: block; height: 17px; margin: 0 -12px; border-top: 3px solid var(--ink); background: var(--panel); }
-#ov-home .ov-box {
-  display: flex; flex-direction: column; justify-content: space-between; gap: 12px;
-  width: 200px; height: 300px; padding: 14px; border: 2px solid var(--ink); border-radius: 12px 12px 4px 4px;
-  background: var(--box); color: var(--on-box);
-}
-#ov-home .ov-box.is-arche { height: 250px; }
-#ov-home .ov-box.is-aniketos { height: 350px; }
-#ov-home .ov-pill {
-  align-self: flex-start; display: inline-flex; align-items: center; min-height: 24px; padding: 0 10px;
-  border: 2px solid var(--on-box); border-radius: 999px; font-size: 12px; font-weight: 700; line-height: 1; white-space: nowrap;
-}
-#ov-home .ov-pill.is-solid { background: var(--on-box); color: var(--box); }
-#ov-home .ov-box-name { font-size: 30px; line-height: .98; font-weight: 800; font-stretch: var(--wide); letter-spacing: -.02em; }
-#ov-home .ov-rule { display: block; height: 2px; margin: 12px 0 6px; background: var(--on-box); }
-#ov-home .ov-box-lines li { font-size: 15px; line-height: 1.4; font-weight: 600; font-stretch: var(--narrow); }
-
-/* sections */
-#ov-home .ov-block { padding-top: 104px; }
-#ov-home .ov-block h2 { font-size: 32px; line-height: 1.1; font-weight: 800; font-stretch: var(--wide); letter-spacing: -.01em; }
-#ov-home .ov-lead { margin-top: 10px; max-width: 40em; font-size: 16px; color: var(--muted); }
-
-/* how it works: a real sequence, so it keeps its numbers */
-#ov-home .ov-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; margin-top: 28px; }
-#ov-home .ov-steps li { padding-top: 16px; border-top: 3px solid var(--ink); }
-#ov-home .ov-steps h3 { display: flex; align-items: baseline; gap: 10px; font-size: 22px; line-height: 1.2; font-weight: 800; font-stretch: var(--wide); letter-spacing: 0; }
-#ov-home .ov-steps p { margin-top: 8px; font-size: 16px; color: var(--muted); }
-
-/* starter kits: colored labels */
-#ov-home .ov-kits { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 28px; }
-#ov-home .ov-kit {
-  display: flex; flex-direction: column; justify-content: space-between; min-height: 156px; padding: 20px;
-  border: 2px solid var(--ink); border-radius: 12px; background: var(--box); color: var(--on-box);
-}
-#ov-home .ov-kit h3 { font-size: 22px; line-height: 1.1; font-weight: 800; font-stretch: var(--wide); letter-spacing: -.01em; }
-#ov-home .ov-kit .ov-rule { margin: 16px 0 8px; }
-#ov-home .ov-kit p { font-size: 17px; font-weight: 600; font-stretch: var(--narrow); }
-
-/* early access + footer */
-#ov-home .ov-access { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 32px; margin-top: 104px; padding: 32px; border: 2px solid var(--ink); border-radius: 12px; background: var(--panel); }
-#ov-home .ov-access h2 { font-size: 28px; line-height: 1.1; font-weight: 800; font-stretch: var(--wide); letter-spacing: -.01em; }
-#ov-home .ov-access p { margin-top: 8px; max-width: 36em; font-size: 16px; color: var(--muted); }
-#ov-home .ov-foot {
-  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;
-  margin-top: 72px; padding: 24px 0 48px; border-top: 3px solid var(--ink); font-size: 14px;
-}
-#ov-home .ov-foot a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
-
-@media (max-width: 560px) {
-  #ov-home .ov-wrap { padding-left: 20px; padding-right: 20px; }
-  /* the hero has the same button right below, so the header keeps just the logo on phones */
-  #ov-home .ov-nav { display: none; }
-  #ov-home .ov-hero { padding-top: 24px; }
-  #ov-home .ov-hero-text { flex-basis: 100%; padding-bottom: 0; }
-  #ov-home .ov-hero-sub { font-size: 17px; }
-  /* two boxes to a shelf */
-  #ov-home .ov-hero-shelf { flex: 1 1 100%; }
-  #ov-home .ov-shelf { row-gap: 32px; }
-  #ov-home .ov-slot { flex: 0 0 50%; padding: 0 8px; }
-  #ov-home .ov-edge { margin: 0 -8px; }
-  #ov-home .ov-box { width: 100%; height: 240px; padding: 12px; }
-  #ov-home .ov-box.is-arche { height: 200px; }
-  #ov-home .ov-box.is-aniketos { height: 280px; }
-  #ov-home .ov-box-name { font-size: 21px; }
-  #ov-home .ov-box-lines li { font-size: 14px; }
-  #ov-home .ov-block { padding-top: 72px; }
-  #ov-home .ov-block h2 { font-size: 28px; }
-  #ov-home .ov-access { margin-top: 72px; padding: 24px; }
-  #ov-home .ov-foot { margin-top: 48px; }
-}
-@media (max-width: 360px) {
-  #ov-home .ov-box-name { font-size: 18px; }
-  #ov-home .ov-box-lines li { font-size: 13px; }
-}
-@media (prefers-reduced-motion: reduce) { #ov-home * { transition: none !important; } }
-</style>
+<link rel="stylesheet" href="/site.css">
 </head>
 <body>
 <div id="ov-home">
   <header class="ov-wrap ov-top">
     <a class="ov-logo" href="/"><span class="ov-mark" aria-hidden="true"></span>Heura Studio</a>
     <nav class="ov-nav" aria-label="Main">
-      <a class="ov-btn ov-btn-primary" href="mailto:hello@ostravanne.com?subject=Heura%20Studio%20early%20access">Request early access</a>
+      <a class="ov-btn ov-btn-primary" href="/early-access/">Request early access</a>
     </nav>
   </header>
 
@@ -172,7 +35,7 @@ html, body { margin: 0; padding: 0; background: #ffffff; }
         <h1 id="ov-hero-title">Build your company's own AI. No code.</h1>
         <p class="ov-hero-sub">Pick a base model off the shelf, teach it your documents and rules, then launch it on your website or your own computer.</p>
         <div class="ov-hero-actions">
-          <a class="ov-btn ov-btn-primary" href="mailto:hello@ostravanne.com?subject=Heura%20Studio%20early%20access">Request early access</a>
+          <a class="ov-btn ov-btn-primary" href="/early-access/">Request early access</a>
           <a class="ov-btn ov-btn-ghost" href="#kits">See options</a>
         </div>
       </div>
@@ -247,7 +110,7 @@ html, body { margin: 0; padding: 0; background: #ffffff; }
         <h2 id="ov-access-title">Heura Studio is in early access</h2>
         <p>Tell us what your company would teach it, and we'll set you up.</p>
       </div>
-      <a class="ov-btn ov-btn-primary" href="mailto:hello@ostravanne.com?subject=Heura%20Studio%20early%20access">Request early access</a>
+      <a class="ov-btn ov-btn-primary" href="/early-access/">Request early access</a>
     </section>
   </main>
 
