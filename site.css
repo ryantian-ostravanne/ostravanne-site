@@ -134,30 +134,3 @@ html, body { margin: 0; padding: 0; background: #ffffff; }
   #ov-home .ov-box-lines li { font-size: 13px; }
 }
 @media (prefers-reduced-motion: reduce) { #ov-home * { transition: none !important; } }
-
-/* early access form */
-#ov-home .ea { max-width: 520px; padding-top: 56px; padding-bottom: 32px; }
-#ov-home .ea h1 { font-size: clamp(36px, 4vw, 52px); line-height: 1; font-weight: 800; font-stretch: var(--wide); letter-spacing: -.02em; }
-#ov-home .ea-lead { margin-top: 16px; font-size: 19px; line-height: 1.5; color: var(--muted); }
-#ov-home .ea-form { display: grid; gap: 18px; margin-top: 32px; }
-#ov-home .ea-field { display: grid; gap: 6px; }
-#ov-home .ea-field label { font-size: 15px; font-weight: 600; }
-#ov-home .ea-field input {
-  width: 100%; min-height: 48px; margin: 0; padding: 0 14px; border: 2px solid var(--ink); border-radius: 8px;
-  background: var(--floor); color: var(--ink); font: inherit; font-size: 17px;
-}
-#ov-home .ea-field input:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
-#ov-home .ea-trap { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
-#ov-home .ea-submit { justify-self: start; margin-top: 6px; cursor: pointer; font-family: inherit; }
-#ov-home .ea-submit[disabled] { opacity: .6; cursor: progress; }
-#ov-home .ea-submit:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
-#ov-home .ea-status { margin-top: 16px; font-size: 16px; font-weight: 600; }
-#ov-home .ea-status:empty { display: none; }
-#ov-home .ea-done {
-  margin-top: 32px; padding: 24px; border: 2px solid var(--ink); border-radius: 12px; background: var(--panel);
-  font-size: 19px; font-weight: 600; line-height: 1.4;
-}
-@media (max-width: 560px) {
-  #ov-home .ea { padding-top: 24px; }
-  #ov-home .ea-submit { justify-self: stretch; }
-}
