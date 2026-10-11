@@ -136,8 +136,21 @@
   #ov-home .ap-panel { margin: 0 auto; }
   #ov-home .ap-panel h1 { font-size: clamp(34px, 11.5vw, 52px); }
 }
-/* Phones: a smaller logo and nav, so both fit one row above the drawing. */
-@media (max-width: 420px) {
+/* Landscape phones: too short for the band above the form, so the page splits like on desktop and the email
+   field is on screen without scrolling. */
+@media (min-width: 600px) and (max-width: 959px) and (max-height: 500px) {
+  #ov-home.ap { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  #ov-home .ap-art { position: sticky; height: 100vh; height: 100dvh; }
+  /* the top of the drawing, so the lessons clear the logo */
+  #ov-home .ap-art img { object-position: 50% 0%; }
+  #ov-home .ap-main { padding: 80px 24px 32px; }
+  #ov-home .ap-panel h1 { font-size: clamp(30px, 4.8vw, 40px); }
+  #ov-home .ap-lead { margin-top: 12px; font-size: 16px; }
+  #ov-home .ap-form { margin-top: 24px; }
+}
+/* Phones: a smaller logo and nav, so both fit one row above the drawing (the full-size pair needs a row of
+   about 430px, this one about 320px). */
+@media (max-width: 480px) {
   #ov-home .ap-top { column-gap: 8px; }
   #ov-home .ap-top .ov-logo { gap: 7px; font-size: 15px; }
   #ov-home .ap-top .ov-mark { width: 22px; height: 22px; border-radius: 5px; }
@@ -148,6 +161,15 @@
 @media (max-width: 370px) {
   #ov-home .ap-top { padding-left: 16px; padding-right: 16px; }
   #ov-home .ap-main { padding-left: 16px; padding-right: 16px; }
+}
+/* The narrowest phones (320px, say): the mark alone stands for the logo, so the nav keeps its size. The name
+   stays in the link for screen readers. */
+@media (max-width: 359px) {
+  #ov-home .ap-top .ov-mark { width: 28px; height: 28px; border-radius: 6px; }
+  #ov-home .ap-top .ov-mark::after { top: 10px; height: 9px; }
+  #ov-home .ap-top .ap-wordmark {
+    position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
