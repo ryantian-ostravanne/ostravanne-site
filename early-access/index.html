@@ -3,58 +3,83 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Request early access | Heura Studio</title>
-<meta name="description" content="Ask for early access to Heura Studio, the no-code way to build your company's own AI.">
-<meta name="theme-color" content="#ffffff">
+<title>Apply for early access | Heura Studio</title>
+<meta name="description" content="Apply for early access to Heura Studio, the no-code way to build your company's own AI.">
+<meta name="theme-color" content="#f2f2ef">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="/icon-512.png" type="image/png" sizes="512x512">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Chivo+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="/site.css">
-<script src="/early-access/signup.js" defer></script>
+<link rel="stylesheet" href="/early-access/apply.css">
+<!-- signup.js turns the form into two steps. Without it (no JavaScript, or the file fails to load) the form
+     stays a plain one that posts name, email and company. -->
+<script>if (window.fetch && window.URLSearchParams && window.FormData) document.documentElement.classList.add('js');</script>
+<script src="/early-access/signup.js" defer onerror="document.documentElement.classList.remove('js')"></script>
 </head>
 <body>
-<div id="ov-home">
-  <header class="ov-wrap ov-top">
+<div id="ov-home" class="ap">
+  <header class="ap-top">
     <a class="ov-logo" href="/"><span class="ov-mark" aria-hidden="true"></span>Heura Studio</a>
+    <nav class="ap-nav" aria-label="Main">
+      <a class="ap-link" href="mailto:ryantian@ostravanne.com,leoli@ostravanne.com?subject=Heura%20Studio%20demo">Book a demo</a>
+      <a class="ap-pill" href="https://heurastudios.com/login">Log in</a>
+    </nav>
   </header>
 
-  <main class="ov-wrap">
-    <section class="ea" aria-labelledby="ea-title">
-      <h1 id="ea-title">Request early access</h1>
-      <p class="ea-lead">Tell us who you are. We'll email you when you're in.</p>
-      <form id="ea-form" class="ea-form" method="post" action="https://script.google.com/macros/s/AKfycbxeGXRIPZbw9SmmELM12JjJCPv7J-dosWmukFCh4RN90vVQsfV1jGKtJcDdEren_k8BEQ/exec">
-        <div class="ea-field">
-          <label for="ea-name">Name</label>
-          <input id="ea-name" name="name" type="text" autocomplete="name" maxlength="100" required>
-        </div>
-        <div class="ea-field">
-          <label for="ea-email">Work email</label>
-          <input id="ea-email" name="email" type="email" autocomplete="email" maxlength="254" required>
-        </div>
-        <div class="ea-field">
-          <label for="ea-company">Company</label>
-          <input id="ea-company" name="company" type="text" autocomplete="organization" maxlength="100" required>
-        </div>
-        <div class="ea-trap" aria-hidden="true">
-          <label for="ea-website">Leave this empty</label>
-          <input id="ea-website" name="website" type="text" tabindex="-1" autocomplete="off">
-        </div>
-        <button class="ov-btn ov-btn-primary ea-submit" type="submit">Request early access</button>
-      </form>
-      <p id="ea-status" class="ea-status" role="status"></p>
-    </section>
-  </main>
+  <div class="ap-art">
+    <img src="/early-access/drawing.svg" alt="" width="1000" height="1100">
+  </div>
 
-  <footer class="ov-wrap">
-    <div class="ov-foot">
-      <span>Heura Studio by Ostravanne</span>
-      <a href="mailto:hello@ostravanne.com">hello@ostravanne.com</a>
+  <main class="ap-main">
+    <div class="ap-panel">
+      <h1 id="ea-title">Apply for<br> early access</h1>
+      <p class="ap-lead">Heura Studio is opening to a few companies at a time. Apply with your work email and we'll write to you when you're in.</p>
+
+      <!-- data-google-client-id: the OAuth client ID for "Continue with Google", the same one as
+           GOOGLE_CLIENT_ID in _backend/Code.gs. While it's empty the Google option stays hidden. -->
+      <form id="ea-form" class="ap-form" method="post" action="https://script.google.com/macros/s/AKfycbxeGXRIPZbw9SmmELM12JjJCPv7J-dosWmukFCh4RN90vVQsfV1jGKtJcDdEren_k8BEQ/exec" data-google-client-id="" aria-labelledby="ea-title">
+        <div class="ap-field">
+          <div class="ap-label-row">
+            <label for="ea-email">Work email</label>
+            <button class="ap-back" type="button" hidden>Use a different email</button>
+          </div>
+          <div class="ap-input">
+            <svg class="ap-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="1.75" y="3.25" width="12.5" height="9.5" rx="1.5"/><path d="m2.5 4.5 5.5 4.25 5.5-4.25"/></svg>
+            <input id="ea-email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="you@company.com" required>
+          </div>
+        </div>
+
+        <div class="ap-step1">
+          <button class="ap-continue" type="button">Continue with email</button>
+          <p class="ap-or" hidden>or</p>
+          <div class="ap-google" hidden></div>
+        </div>
+
+        <div class="ap-step2">
+          <div class="ap-field">
+            <label for="ea-name">Name</label>
+            <input id="ea-name" name="name" type="text" autocomplete="name" maxlength="100" required>
+          </div>
+          <div class="ap-field">
+            <label for="ea-company">Company</label>
+            <input id="ea-company" name="company" type="text" autocomplete="organization" maxlength="100" required>
+          </div>
+          <div class="ea-trap" aria-hidden="true">
+            <label for="ea-website">Leave this empty</label>
+            <input id="ea-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <button class="ap-submit ea-submit" type="submit">Request early access</button>
+        </div>
+      </form>
+      <p id="ea-status" class="ap-status" role="status"></p>
+
+      <p class="ap-note">We read every application ourselves. Questions before you apply? <a href="mailto:ryantian@ostravanne.com,leoli@ostravanne.com">Email the founders</a>.</p>
     </div>
-  </footer>
+  </main>
 </div>
 </body>
 </html>
