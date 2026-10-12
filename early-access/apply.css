@@ -19,16 +19,16 @@
 #ov-home .ap-link,
 #ov-home .ap-pill {
   display: inline-flex; align-items: center; justify-content: center; min-height: 44px; white-space: nowrap;
-  font-size: 15px; font-weight: 560; line-height: 1; letter-spacing: -.01em; -webkit-tap-highlight-color: transparent;
+  font-size: 15px; font-weight: 600; line-height: 1; letter-spacing: -.01em; -webkit-tap-highlight-color: transparent;
 }
 #ov-home .ap-link { padding: 0 12px; color: var(--text); }
 #ov-home .ap-pill {
-  padding: 0 18px; border: 1px solid var(--hairline); border-radius: 999px; color: var(--text);
+  padding: 0 16px; border: 1px solid var(--edge); border-radius: 10px; color: var(--text);
   transition: border-color .25s var(--ease), transform .3s var(--ease);
 }
 @media (hover: hover) {
   #ov-home .ap-link:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
-  #ov-home .ap-pill:hover { border-color: var(--text-2); }
+  #ov-home .ap-pill:hover { border-color: var(--text); }
 }
 #ov-home .ap-pill:active { transform: scale(.97); }
 
@@ -57,7 +57,7 @@
 #ov-home .ap-panel { width: 100%; max-width: 400px; }
 /* two lines: "early access" fits the 400px column at 52px */
 #ov-home .ap-panel h1 {
-  font-size: 52px; font-weight: 680; font-stretch: 104%; letter-spacing: -.03em; line-height: 1.04;
+  font-size: 52px; font-weight: 720; font-stretch: 100%; letter-spacing: -.034em; line-height: 1.02;
 }
 #ov-home .ap-lead { margin-top: 18px; font-size: 17px; line-height: 1.5; color: var(--text-2); text-wrap: pretty; }
 
@@ -73,11 +73,11 @@
 @keyframes ap-reveal { from { opacity: 0; transform: translateY(8px); } }
 
 #ov-home .ap-field { display: grid; gap: 8px; }
-#ov-home .ap-field label { font-size: 15px; font-weight: 560; line-height: 1.3; }
+#ov-home .ap-field label { font-size: 15px; font-weight: 600; line-height: 1.3; }
 #ov-home .ap-label-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
 #ov-home .ap-field input {
   display: block; width: 100%; height: 48px; margin: 0; padding: 0 14px;
-  border: 1px solid var(--field); border-radius: 12px; background: var(--surface); color: var(--text);
+  border: 1px solid var(--field); border-radius: 8px; background: var(--surface); color: var(--text);
   font: inherit; font-size: 17px; line-height: 1.2;
   transition: border-color .2s var(--ease);
 }
@@ -98,18 +98,18 @@
   fill: none; stroke: var(--text-2); stroke-width: 1.3; stroke-linejoin: round; pointer-events: none;
 }
 
-/* both actions are the primary pill: one at a time shows */
+/* both actions are the primary button: one at a time shows */
 #ov-home .ap-continue,
 #ov-home .ap-submit {
   display: flex; align-items: center; justify-content: center; width: 100%; height: 48px; margin: 0; padding: 0 20px;
-  border: 0; border-radius: 999px; background: var(--text); color: var(--page); cursor: pointer;
-  font-size: 17px; font-weight: 560; line-height: 1; letter-spacing: -.01em;
+  border: 0; border-radius: 10px; background: var(--text); color: var(--page); cursor: pointer;
+  font-size: 16px; font-weight: 600; line-height: 1; letter-spacing: -.01em;
   transition: background-color .25s var(--ease), transform .3s var(--ease); -webkit-tap-highlight-color: transparent;
 }
 #ov-home .ap-submit { margin-top: 8px; }
 @media (hover: hover) {
   #ov-home .ap-continue:hover,
-  #ov-home .ap-submit:hover { background: color-mix(in srgb, var(--text) 82%, var(--page)); }
+  #ov-home .ap-submit:hover { background: color-mix(in srgb, var(--text) 80%, var(--page)); }
 }
 #ov-home .ap-continue:active,
 #ov-home .ap-submit:active { transform: scale(.985); }
@@ -123,11 +123,11 @@
 
 #ov-home .ea-trap { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
 
-#ov-home .ap-status { margin-top: 16px; font-size: 15px; font-weight: 560; line-height: 1.45; }
+#ov-home .ap-status { margin-top: 16px; font-size: 15px; font-weight: 600; line-height: 1.45; }
 #ov-home .ap-status:empty { display: none; }
 #ov-home .ea-done {
-  margin-top: 36px; padding: 20px 22px; border: 1px solid var(--hairline); border-radius: 20px; background: var(--band);
-  font-size: 19px; font-weight: 560; line-height: 1.4;
+  margin-top: 36px; padding: 20px 22px; border: 1px solid var(--edge); border-radius: 12px; background: var(--band);
+  font-size: 19px; font-weight: 600; line-height: 1.4;
 }
 #ov-home .ea-done:focus { outline: none; }
 #ov-home .ap-note { margin-top: 40px; font-size: 14px; line-height: 1.55; color: var(--text-2); text-wrap: pretty; }
@@ -166,7 +166,7 @@
 @media (max-width: 480px) {
   #ov-home .ap-top { column-gap: 8px; padding-left: 16px; padding-right: 16px; }
   #ov-home .ap-top .ov-logo { gap: 7px; font-size: 15px; }
-  #ov-home .ap-top .ov-mark { width: 22px; height: 22px; border-radius: 6px; }
+  #ov-home .ap-top .ov-mark { width: 22px; height: 22px; border-radius: 4px; }
   #ov-home .ap-top .ov-mark::after { top: 7.5px; height: 7px; }
   #ov-home .ap-nav { gap: 2px; }
   #ov-home .ap-link { padding: 0 6px; font-size: 14px; }
@@ -178,7 +178,7 @@
 /* Below about 380px the mark alone stands for the logo, so the nav keeps its size. The name stays in the link
    for screen readers. */
 @media (max-width: 379px) {
-  #ov-home .ap-top .ov-mark { width: 26px; height: 26px; border-radius: 7px; }
+  #ov-home .ap-top .ov-mark { width: 26px; height: 26px; border-radius: 5px; }
   #ov-home .ap-top .ov-mark::after { top: 9px; height: 8px; }
   #ov-home .ap-top .ap-wordmark {
     position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
